@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ $# -lt 2 ]; then
+    echo "Two arguments required:\n\t- Google Drive FILEID\n\t- Output FILENAME\n\t- Optional --large for +100Mb files"
+    exit 1
+fi
+
+if [ ${3:-0} = '--large' ]; then
+    wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=$1' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=$1" -O $2 && rm -rf /tmp/cookies.txt
+else
+    wget --no-check-certificate "https://docs.google.com/uc?export=download&id=$1" -O $2
+fi
