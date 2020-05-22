@@ -1,14 +1,14 @@
 # wget-googledrive
 
-Simple tool for downloading public-shared files with Google Drive
+Simple tool for downloading public-shared files with Google Drive using wget
 
 It's common in Jupyter Notebooks and Google Colab to use files (checkpoints, trained models...) uploaded in Google Drive.
 
 This is just a shorcut for simple usage of the commands in this article https://medium.com/@acpanjan/download-google-drive-files-using-wget-3c2c025a8b99
 
-## Usage
+## Notebook usage
 
-In Notebook:
+Request:
 
 ```
 !git clone https://github.com/jaltez/wget-googledrive
